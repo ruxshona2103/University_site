@@ -62,3 +62,21 @@ def get_students_with_groups():
             LEFT JOIN adminapp_groups ON adminapp_students.group_id = adminapp_groups.id""")
         return dictfetchall(cursor)
 
+
+def get_teacher_with_details():
+    with closing(connection.cursor()) as cursor:
+        cursor.execute("""
+            SELECT adminapp_teachers.*, adminapp_subjects.name AS subject_name, adminapp_kafedra.name AS kafedra_name
+            FROM adminapp_teachers
+            LEFT JOIN adminapp_subjects ON adminapp_teachers.subject_id = adminapp_subjects.id
+            LEFT JOIN adminapp_kafedra ON adminapp_teachers.kafedra_id_id = adminapp_kafedra.id""")
+        return dictfetchall(cursor)
+
+
+
+
+
+
+
+
+

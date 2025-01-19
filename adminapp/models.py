@@ -27,7 +27,7 @@ class Subjects(models.Model):
 class Teachers(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    subject = models.ForeignKey(Subjects, on_delete=models.CASCADE , related_name='teachers')
+    subject= models.ForeignKey(Subjects, on_delete=models.CASCADE , related_name='teachers')
     kafedra_id = models.ForeignKey(Kafedra, on_delete=models.CASCADE, related_name="kafedra")
 
 

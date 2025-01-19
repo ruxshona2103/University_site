@@ -32,7 +32,7 @@ class SubjectForm(forms.ModelForm):
 
 class TeachersForm(forms.ModelForm):
     class Meta:
-        models = Teachers
+        model = Teachers()
         fields = "__all__"
         widgets = {
             "first_name": forms.TextInput(attrs={'class': 'form-control'}),
