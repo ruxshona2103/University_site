@@ -36,9 +36,9 @@ class Teachers(models.Model):
 
 
 class Groups(models.Model):
-    name = models.CharField(max_length=155, null=False, blank=False)
+    name = models.CharField(max_length=100, null=False, blank=False)
     kafedra = models.ForeignKey(Kafedra, on_delete=models.CASCADE)
-    subject = models.ManyToManyField(Subjects, related_name='groups')
+    mentor = models.ForeignKey(Teachers, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.name
