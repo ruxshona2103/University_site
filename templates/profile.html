@@ -1,10 +1,9 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
  <div class="page-container">
     <!-- HEADER DESKTOP-->
-    {%include 'userbar.html'%}
+    {% include 'userbar.html' %}
     <!-- HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
@@ -16,23 +15,22 @@
                         <div class="overview-wrap">
                             <h2 class="title-1">Username: {{ request.user.username }}</h2>
 
-
-{#                            <a class="au-btn au-btn-icon au-btn--blue" href="{% url 'teacher_create' %}">#}
-{#                                <i class="zmdi zmdi-plus"></i>add</a>#}
+                            {# Uncomment this section if needed #}
+                            {# <a class="au-btn au-btn-icon au-btn--blue" href="{% url 'teacher_create' %}">#}
+                            {#     <i class="zmdi zmdi-plus"></i>add</a> #}
                         </div>
-
                     </div>
                 </div>
                 <br>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                <h2>Last actions:</h2>
-                {% for act in request.session.actions %}
-                    <div class="row">{{ act }}</div>
-                {% endfor %}
-            </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <h2>Last actions:</h2>
+                        {% for act in request.session.actions %}
+                            <div class="row">{{ act }}</div>
+                        {% endfor %}
+                    </div>
 
-                <div class="col-sm-6 col-lg-4">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="overview-item overview-item--c2">
                             <div class="overview__inner">
                                 <div class="overview-box clearfix">
@@ -40,7 +38,7 @@
                                         <i class="fa fa-bank"></i>
                                     </div>
                                     <div class="text">
-                                        <h2>{{ request.session.kafedra_count }}</h2>
+                                        <h2>{{ request.session.faculty_count }}</h2>
                                         <span>Count</span>
                                     </div>
                                 </div>
@@ -60,9 +58,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
-
-
         </div>
     </div>
     <!-- END MAIN CONTENT-->
