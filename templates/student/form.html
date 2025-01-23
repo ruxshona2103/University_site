@@ -27,27 +27,31 @@
                                 <small> Form</small>
                             </div>
                             <div class="card-body card-block">
-                                <form method="post">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <label class=" form-control-label">First Name</label>
                                         {{ form.first_name }}
                                     </div>
-                                    <div class="form-group">
-                                        <label class=" form-control-label">Last Name</label>
-                                        {{ form.last_name }}
+                                    <div>
+                                         <label class=" form-control-label">Last Name</label>
+                                         {{ form.last_name }}
                                     </div>
-                                    <div class="form-group">
+                                    <div>
                                         <label class=" form-control-label">Phone Number</label>
                                         {{ form.phone_number }}
                                     </div>
-                                    <div class="form-group">
-                                        <label class=" form-control-label">Date of birth</label>
+                                    <div>
+                                        <label class=" form-control-label">DD/MM/YYYY</label>
                                         {{ form.date_of_birth }}
                                     </div>
-                                    <div class="form-group">
+                                    <div>
                                         <label class=" form-control-label">Group</label>
                                         {{ form.group }}
+                                    </div>
+                                    <div>
+                                        <label  class=" form-control-label">Image</label>
+                                        {{form.image}}
                                     </div>
 
                                     {% if model %}
