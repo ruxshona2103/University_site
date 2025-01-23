@@ -40,17 +40,17 @@ def get_teachers_with_subject():
             LEFT JOIN adminapp_subject ON adminapp_teachers.subjects_id = adminapp_subjects.id
             """)
         return dictfetchall(cursor)
-
-
-def get_groups_with_details():
-    with closing(connection.cursor()) as cursor:
-        cursor.execute("""
-                SELECT adminapp_groups.*, adminapp_kafedra.name AS kafedra_name, 
-                CONCAT(adminapp_teachers.first_name, " ", adminapp_teachers.last_name) AS mentor_fullname
-                FROM adminapp_groups 
-                LEFT JOIN adminapp_kafedra ON adminapp_groups.kafedra_id = adminapp_kafedra.id
-                LEFT JOIN adminapp_teachers ON adminapp_groups.mentor_id = adminapp_teachers.id """)
-        return dictfetchall(cursor)
+#
+#
+# def get_groups_with_details():
+#     with closing(connection.cursor()) as cursor:
+#         cursor.execute("""
+#                 SELECT adminapp_groups.*, adminapp_kafedra.name AS kafedra_name,
+#                 CONCAT(adminapp_teachers.first_name, " ", adminapp_teachers.last_name) AS mentor_fullname
+#                 FROM adminapp_groups
+#                 LEFT JOIN adminapp_kafedra ON adminapp_groups.kafedra_id = adminapp_kafedra.id
+#                 LEFT JOIN adminapp_teachers ON adminapp_groups.mentor_id = adminapp_teachers.id """)
+#         return dictfetchall(cursor)
 
 
 def get_teacher_with_details():
@@ -83,7 +83,8 @@ def get_group_with_details():
 def get_students_with_groups():
     with closing(connection.cursor()) as cursor:
         cursor.execute("""
-            SELECT adminapp_students.*, adminapp_groups.name AS group_name
-            FROM adminapp_students
-            LEFT JOIN adminapp_groups ON adminapp_students.group_id = adminapp_groups.id""")
+                    SELECT adminapp_students.*, adminapp_groups.name AS group_name
+                    FROM adminapp_students
+                    LEFT JOIN adminapp_groups ON adminapp_students.group_id = adminapp_groups.id
+                """)
         return dictfetchall(cursor)

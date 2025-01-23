@@ -45,11 +45,12 @@ class Groups(models.Model):
 
 
 class Students(models.Model):
-    first_name = models.CharField(max_length=255, null= False, blank= False)
+    first_name = models.CharField(max_length=255, null= True, blank= True)
     last_name = models.CharField(max_length=255, null=False , blank=False)
     group = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name="students")
-    phone_number = models.CharField(max_length=255, null=False, blank=False)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
     date_of_birth = models.DateField(null=True, blank=True)
+    image = models.ImageField(upload_to="images/", null=True, blank=True)
 
 
     def __str__(self):
