@@ -35,4 +35,5 @@ urlpatterns = [
     path('student/<int:pk>/edit', student_edit, name='student_edit'),
     path('student/<int:pk>/delete', student_delete, name='student_delete'),
     path('student/list/', student_list, name='student_list'),
+    path('profile/', profile, name = "profile")
 ]
